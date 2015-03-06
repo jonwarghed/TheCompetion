@@ -1,0 +1,25 @@
+type Shot is Hit or Miss
+
+fire () :: Shot
+    0 < a < 1
+    0 < b < 1
+    match a * a + b * b
+        <1 => Hit
+        otherwise => Miss
+
+max is one million
+let 4 riflemen shoot for max calls
+    generate list for max calls
+    shots = map calls to fire
+count hits in shots for 4 riflemen
+print hits / max * 4 //Should equal PI
+
+
+Test:
+    It should be possible to fire
+
+Bin:
+    .shootingrange.sh
+        build
+        timer run 
+        echo timer result
