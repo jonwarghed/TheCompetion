@@ -1,13 +1,18 @@
-import math
+import math, sequtils
 randomize()
 
 type
-    hit = bool
+    Shot = enum
+        miss, hit
 
-proc fire() : hit =
+proc fire(shot:Shot) : Shot =
     let a = random(1.0)
     let b = random(1.0)
-    result = a*a+b*b<1
+    if (a*a+b*b<1): result = hit
+    else: result = miss
 
-let max = 100000
-let list = (0..max).map(fire)
+let max = 1000000
+var shots = newSeq[Shot](max)
+shots.map(fire)
+let hits = shots.filterIt(it == hit).len
+echo (hits/max*4)

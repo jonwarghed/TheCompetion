@@ -1,3 +1,5 @@
+##!/bin/env python
+#This code is both python 2.7 and 3.x compatible
 from collections import namedtuple
 import random
 
@@ -11,4 +13,4 @@ def fire():
 max = 1000000
 shots = [fire() for target in range(max)]
 hits = len([shot.hit for shot in shots if shot.hit])
-print float(hits)/max*4
+print(float(hits)/max*4)

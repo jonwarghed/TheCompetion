@@ -1,0 +1,13 @@
+Spec:
+    output "What is your name"
+    input >> name
+    output "Hello " name "!"
+
+Test:
+    None
+
+Bin:
+    .shootingrange.sh
+        build
+        timer run 
+        echo timer result

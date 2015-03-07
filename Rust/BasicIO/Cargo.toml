@@ -1,0 +1,5 @@
+[package]
+
+name = "BasicIO"
+version = "0.0.1"
+authors = ["Jon Warghed <jon.warghed@gmail.com>"]

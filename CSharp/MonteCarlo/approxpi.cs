@@ -1,6 +1,5 @@
 using System;
-using System.Random;
-using System.Enumerable;
+using System.Linq;
 
 public class Approxpi
 {
@@ -8,26 +7,30 @@ public class Approxpi
     {
         var gun = new Gun();
         int max = 1000000;
-        var shots = Enumerable.Range(1,max).select(x => gun.Fire());
-        var hits = shots.count(shot => shot.hit);
-        system.println(hits / max * 4);
+        var shots = Enumerable.Range(1,max).Select(x => gun.Fire());
+        var hits = shots.Count(shot => shot.hit);
+        Console.WriteLine((double)hits / max * 4);
     }
 }
 
 public class Gun
 {
-    public static random = new Random();
+    public Gun()
+    {
+        random = new Random();
+    }
+    private Random random;
 
     public Shot Fire()
     {
-        a = random.nextDouble();
-        b = random.nextDouble();
-        return new Shot(){hit = a*a + b*b < 1 }
+        var a = random.NextDouble();
+        var b = random.NextDouble();
+        return new Shot(){hit = a*a + b*b < 1 };
     }
 
 }
 
-private class Shot
+public class Shot
 {
     public Boolean hit {get;set;}
 }
