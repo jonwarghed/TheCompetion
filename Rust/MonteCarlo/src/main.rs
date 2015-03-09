@@ -10,7 +10,6 @@ fn main() {
     .collect::<Vec<Shot>>().len();
     println!("{}", ((hits as f64) * 4.0)/(total as f64));
 }
-//Empty struct not allowed, but how can i otherwise make the iterator?
 struct Infinity;
 struct Shot {hit: bool}
 
