@@ -4,16 +4,16 @@ use std::old_io::stdin;
 
 fn main() {
     let total = 1_000_000;
-    let hits = Infinity{okay:5}
+    let hits = Infinity
     .take(total)
     .filter(|shot| shot.hit)
     .collect::<Vec<Shot>>().len();
-    println!("{}", hits);
     println!("{}", ((hits as f64) * 4.0)/(total as f64));
 }
 //Empty struct not allowed, but how can i otherwise make the iterator?
-struct Infinity {okay:u32}
+struct Infinity;
 struct Shot {hit: bool}
+
 
 impl Iterator for Infinity {
     type Item = Shot;
@@ -28,6 +28,5 @@ impl Iterator for Infinity {
 
 #[test]
 fn should_be_able_to_fire(){
-
-    let result = fire();
+    let result = Infinity.take(1);
 }
